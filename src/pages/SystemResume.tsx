@@ -103,7 +103,7 @@ const SystemResume: React.FC = () => {
 
                     {/* Infrastructure Matrix (Curvy) */}
                     <section className="relative pt-1">
-                        <div className="grid grid-cols-2 gap-x-6 gap-y-3">
+                        <div className="grid grid-cols-4 gap-4">
                             {skills.map((skill: any, idx: number) => (
                                 <div key={idx} className="relative group">
                                     <span className="text-[7pt] font-black text-slate-400 uppercase tracking-widest block mb-1.5">{skill.category}</span>
