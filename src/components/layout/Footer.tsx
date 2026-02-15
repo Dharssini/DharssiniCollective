@@ -6,13 +6,13 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <h3 className="text-xl font-bold gradient-text mb-3">Dharssini Collective</h3>
+            <h3 className="text-xl font-bold gradient-text mb-3">DK</h3>
             <p className="text-dark-400 text-sm mb-4">
               Building AI systems from first principles. Sharing the journey from fundamentals to production LLM applications.
             </p>
             <div className="flex gap-4">
               <a
-                href="https://github.com/yourusername"
+                href="https://github.com/Dharssini"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-dark-500 hover:text-primary-400 transition-colors"
@@ -22,7 +22,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://linkedin.com/in/yourprofile"
+                href="https://linkedin.com/in/dharssini-karthikeyan"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-dark-500 hover:text-primary-400 transition-colors"
@@ -32,7 +32,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://youtube.com/@yourchannel"
+                href="https://www.youtube.com/@dksdiary5015"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-dark-500 hover:text-primary-400 transition-colors"
@@ -42,7 +42,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="mailto:your.email@example.com"
+                href="mailto:dharssinikarthikeyan@gmail.com"
                 className="text-dark-500 hover:text-primary-400 transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

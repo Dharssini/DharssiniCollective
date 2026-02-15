@@ -40,7 +40,7 @@ export default function Navigation() {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link to="/" className="text-xl font-bold gradient-text">
-              Dharssini Collective
+              DK
             </Link>
           </div>
 
