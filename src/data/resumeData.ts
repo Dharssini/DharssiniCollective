@@ -11,16 +11,12 @@ export const resumeData = {
     },
     summary: "Minimal. Structured. Intentional. Ruthlessly clean. No decorative spacing tricks. No duplicate sections. One clear narrative. AI/ML Engineer with 2+ years architecting production-grade AI systems across healthcare and enterprise domains. Expertise in multi-agent conversational AI, RAG pipelines, LLM fine-tuning, and scalable microservices.",
     skills: [
-        { category: "AI/ML", items: ["LLMs (GPT, LLaMA, QLoRA Fine‑tuning)", "RAG Systems", "LangChain", "LangFlow", "Multi‑Agent Systems", "PyTorch", "TensorFlow", "Transformers", "NLP", "Prompt Engineering"] },
-        { category: "ML Engineering", items: ["MLflow", "DVC", "Triton Inference Server", "Model Deployment", "Experiment Tracking"] },
-        { category: "Vector & Search", items: ["Qdrant", "FAISS", "Apache Solr", "Hybrid Search (RRF Fusion)", "768‑dim Embeddings"] },
-        { category: "Languages", items: ["Python (Expert)", "C++", "SQL", "TypeScript (Beginner)", "Shell Scripting"] },
-        { category: "Backend/APIs", items: ["FastAPI", "Node.js/Express (Beginner)", "REST APIs", "WebSocket", "Microservices", "Docker"] },
-        { category: "Databases", items: ["PostgreSQL", "MongoDB", "SQLite", "Redis", "Vector Databases"] },
-        { category: "Cloud/DevOps", items: ["Azure (ACI, App Service, Kubernetes)", "GCP", "Docker Compose", "Git", "CI/CD"] },
-        { category: "Data Science", items: ["Pandas", "NumPy", "Scikit‑learn", "Time‑Series Forecasting", "Power BI", "Excel (Advanced)"] },
-        { category: "Computer Vision", items: ["OCR (OCDRNet, NVIDIA TAO)", "Facial Recognition", "Object Detection"] },
-        { category: "Frontend", items: ["React (Beginner)", "Streamlit", "Web Components"] }
+        { category: "AI & LLM Ecosystems", items: ["LLMs (GPT-4, LLaMA-3, QLoRA)", "RAG Systems (LangChain, LlamaIndex)", "Multi-Agent Orchestration (LangGraph)", "Vector Search (Qdrant, FAISS, Milvus)", "Transformers (HuggingFace)", "PyTorch", "TensorFlow", "Prompt Engineering"] },
+        { category: "Backend & Systems", items: ["FastAPI (High Performance)", "Microservices Architecture", "RESTful APIs", "System Design", "Event-Driven Architecture", "Docker", "Redis Caching"] },
+        { category: "Cloud & MLOps", items: ["Azure (AKS, Container Apps)", "GCP (Vertex AI)", "Kubernetes", "CI/CD Pipelines (GitHub Actions)", "MLflow", "Triton Inference Server", "DVC", "Model Serving"] },
+        { category: "Programming Languages", items: ["Python (Expert)", "C++ (Intermediate)", "SQL (Advanced)", "TypeScript", "Bash/Shell Scripting"] },
+        { category: "Databases & Storage", items: ["PostgreSQL", "MongoDB", "SQLite", "Redis", "Vector Databases (HNSW Indexing)", "Apache Solr"] },
+        { category: "Data Science & CV", items: ["Pandas", "NumPy", "Scikit-learn", "Computer Vision (OpenCV, YOLO, OCR)", "LayoutLM", "Time-Series Forecasting", "Data Visualization"] }
     ],
     researchEngineering: {
         title: "Research Engineering & Technical Innovation",

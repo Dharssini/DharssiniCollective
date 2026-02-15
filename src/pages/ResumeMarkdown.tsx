@@ -7,8 +7,38 @@ export default function ResumeMarkdown() {
         window.print();
     };
 
+    // Generate Markdown Text
+    const markdownContent = `
+# ${personalInfo.name}
+${personalInfo.title}
+${personalInfo.location} | ${personalInfo.phone} | ${personalInfo.email}
+GitHub: github.com/${personalInfo.github} | LinkedIn: linkedin.com/in/${personalInfo.linkedin}
+
+## SUMMARY
+${summary}
+
+## TECHNICAL SKILLS
+${skills.map(s => `- **${s.category}**: ${s.items.join(', ')}`).join('\n')}
+
+## EXPERIENCE
+${experience.map(role => `### ${role.company} | ${role.role}
+${role.period} | ${role.location}
+${role.bullets.map(b => `- ${b.replace(/\*\*/g, '')}`).join('\n')}`).join('\n\n')}
+
+## KEY PROJECTS
+${systemProjects.map(p => `### ${p.title} (${p.client})
+Role: ${p.role} | Tech: ${p.techStack.slice(0, 8).join(', ')}
+- **Problem**: ${p.problem}
+- **Solution**: ${p.solution}
+- **Impact**: ${p.impact.slice(0, 4).map(i => i.replace(/\*\*/g, '')).join('; ')}`).join('\n\n')}
+
+## EDUCATION
+${education.map(e => `**${e.institution}** | ${e.degree}
+${e.period} | ${e.location} | ${e.details}`).join('\n')}
+`.trim();
+
     return (
-        <div className="min-h-screen bg-white text-black font-mono p-8 md:p-12 max-w-[1000px] mx-auto print:p-0">
+        <div className="min-h-screen bg-white text-black p-8 md:p-12 max-w-[210mm] mx-auto print:p-0 print:max-w-none">
             {/* Controls - Hidden in print */}
             <div className="mb-8 flex justify-end print:hidden">
                 <button
@@ -19,119 +49,9 @@ export default function ResumeMarkdown() {
                 </button>
             </div>
 
-            <div className="markdown-body space-y-6 text-sm md:text-base leading-relaxed">
-                {/* Header */}
-                <section>
-                    <h1 className="text-3xl font-bold mb-2 uppercase border-b-2 border-black pb-2">
-                        {personalInfo.name}
-                    </h1>
-                    <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm mb-4">
-                        <span>{personalInfo.location}</span>
-                        <span>•</span>
-                        <span>{personalInfo.phone}</span>
-                        <span>•</span>
-                        <span>{personalInfo.email}</span>
-                        <span>•</span>
-                        <a href={`https://${personalInfo.github}`} className="underline">github.com/{personalInfo.github}</a>
-                        <span>•</span>
-                        <a href={`https://linkedin.com/in/${personalInfo.linkedin}`} className="underline">linkedin.com/in/{personalInfo.linkedin}</a>
-                    </div>
-                </section>
-
-                {/* Summary */}
-                <section>
-                    <h2 className="text-xl font-bold mb-2 uppercase border-b border-black">Professional Summary</h2>
-                    <p>{summary}</p>
-                </section>
-
-                {/* Skills */}
-                <section>
-                    <h2 className="text-xl font-bold mb-2 uppercase border-b border-black">Technical Skills</h2>
-                    <div className="grid grid-cols-1 gap-2">
-                        {skills.map((category, idx) => (
-                            <div key={idx} className="flex flex-col sm:flex-row sm:gap-4">
-                                <span className="font-bold sm:w-40 flex-shrink-0">{category.category}:</span>
-                                <span>{category.items.join(', ')}</span>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* Experience */}
-                <section>
-                    <h2 className="text-xl font-bold mb-4 uppercase border-b border-black">Professional Experience</h2>
-                    <div className="space-y-6">
-                        {experience.map((role, idx) => (
-                            <div key={idx}>
-                                <div className="flex justify-between items-baseline mb-1">
-                                    <h3 className="font-bold text-lg">{role.company}</h3>
-                                    <span className="text-sm">{role.period}</span>
-                                </div>
-                                <div className="flex justify-between items-baseline mb-2 italic">
-                                    <span>{role.role}</span>
-                                    <span>{role.location}</span>
-                                </div>
-                                <ul className="list-disc list-outside ml-4 space-y-1">
-                                    {role.bullets.map((bullet, bIdx) => (
-                                        <li key={bIdx} dangerouslySetInnerHTML={{ __html: bullet.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* System Projects */}
-                <section>
-                    <h2 className="text-xl font-bold mb-4 uppercase border-b border-black">Key Projects</h2>
-                    <div className="space-y-6">
-                        {systemProjects.map((project, idx) => (
-                            <div key={idx}>
-                                <div className="flex justify-between items-baseline mb-1">
-                                    <h3 className="font-bold text-lg">{project.title}</h3>
-                                    <span className="text-sm">{project.period}</span>
-                                </div>
-                                <p className="mb-2 italic text-sm">{project.role} | {project.techStack.slice(0, 6).join(', ')}</p>
-
-                                <div className="mb-2">
-                                    <span className="font-bold text-sm underline">Problem:</span> <span className="text-sm">{project.problem}</span>
-                                </div>
-
-                                <div className="mb-2">
-                                    <span className="font-bold text-sm underline">Solution:</span> <span className="text-sm">{project.solution}</span>
-                                </div>
-
-                                <div className="text-sm">
-                                    <span className="font-bold underline">Impact:</span>
-                                    <ul className="list-disc list-outside ml-4 mt-1 space-y-0.5">
-                                        {project.impact.slice(0, 3).map((item, iIdx) => (
-                                            <li key={iIdx} dangerouslySetInnerHTML={{ __html: item.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
-                                        ))}
-                                    </ul>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </section>
-
-                {/* Education */}
-                <section>
-                    <h2 className="text-xl font-bold mb-4 uppercase border-b border-black">Education</h2>
-                    {education.map((edu, idx) => (
-                        <div key={idx} className="flex justify-between items-baseline">
-                            <div>
-                                <h3 className="font-bold">{edu.institution}</h3>
-                                <p>{edu.degree}</p>
-                                <p className="text-sm italic">{edu.details}</p>
-                            </div>
-                            <div className="text-right">
-                                <p>{edu.period}</p>
-                                <p>{edu.location}</p>
-                            </div>
-                        </div>
-                    ))}
-                </section>
-            </div>
+            <pre className="whitespace-pre-wrap font-mono text-[10pt] leading-snug">
+                {markdownContent}
+            </pre>
         </div>
     );
 }

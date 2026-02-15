@@ -101,21 +101,32 @@ const SystemResume: React.FC = () => {
                         </section>
                     </div>
 
-                    {/* Infrastructure Matrix (Curvy) */}
-                    <section className="relative pt-1">
-                        <div className="grid grid-cols-4 gap-4">
-                            {skills.map((skill: any, idx: number) => (
-                                <div key={idx} className="relative group">
-                                    <span className="text-[7pt] font-black text-slate-400 uppercase tracking-widest block mb-1.5">{skill.category}</span>
-                                    <div className="flex flex-wrap gap-1">
-                                        {skill.items.map((item: string, iIdx: number) => (
-                                            <span key={iIdx} className="text-[7.5pt] font-bold text-slate-800 bg-slate-50 px-1.5 py-0.5 border border-slate-100 rounded-sm">
-                                                {item}
-                                            </span>
-                                        ))}
+                    {/* Infrastructure Matrix (Clean 2-Column) */}
+                    <section className="relative pt-2 pb-4">
+                        <div className="grid grid-cols-2 gap-x-12 items-start">
+                            {/* Left Column: AI, Backend, Cloud */}
+                            <div className="space-y-4">
+                                {skills.slice(0, 3).map((skill: any, idx: number) => (
+                                    <div key={idx}>
+                                        <h3 className="text-[8pt] font-bold text-slate-500 uppercase tracking-widest mb-2">{skill.category}</h3>
+                                        <p className="text-[9pt] font-medium text-slate-900 leading-snug">
+                                            {skill.items.join(', ')}
+                                        </p>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            </div>
+
+                            {/* Right Column: Programming, DB, Data */}
+                            <div className="space-y-4">
+                                {skills.slice(3, 6).map((skill: any, idx: number) => (
+                                    <div key={idx}>
+                                        <h3 className="text-[8pt] font-bold text-slate-500 uppercase tracking-widest mb-2">{skill.category}</h3>
+                                        <p className="text-[9pt] font-medium text-slate-900 leading-snug">
+                                            {skill.items.join(', ')}
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
                         </div>
                     </section>
 
@@ -127,7 +138,10 @@ const SystemResume: React.FC = () => {
 
                         <div className="space-y-6">
                             {Object.entries(groupedProjects).map(([client, projects]: [string, any], idx) => (
-                                <div key={idx} className={idx === 1 ? 'print:break-before-page print:mt-0' : ''}>
+                                <div key={idx} className={`
+                                    ${idx === 0 ? 'print:mb-12' : ''} 
+                                    ${idx === 1 ? 'print:break-before-page print:pt-12' : ''}
+                                `}>
                                     <OrganizationCard
                                         organization={client}
                                         role={projects[0].role}
